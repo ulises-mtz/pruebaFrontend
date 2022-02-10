@@ -1,0 +1,28 @@
+<div class="container-fluid page">
+    <div class="page__box p-3 mt-2">Categorías</div>
+    <div class="page__content shadown p-3 position-relative">
+      <div class="page__content-data position-absolute col-md-12"><br/>
+  
+        <div class="row mt-4 mb-4 justify-content-end">
+          <div class="col-3">
+            <button type="button" class="btn btn-success" (click)="updateCategoria('new');"><i class="material-icons">add</i>&nbsp;
+              Agregar categoría
+            </button>
+          </div>
+        </div>
+        <div class="container">
+          <div class="card" *ngFor="let categoria of categorias">
+             <br>
+            <h2><strong>Clave:&nbsp;</strong>{{categoria.clave}}</h2>
+            <h3><strong>Nombre:&nbsp;</strong>{{categoria.nombre}}</h3>
+            <h3><strong>Fecha:&nbsp;</strong>{{categoria.fechaCreado | date}}</h3>
+            <p><strong>Activa:&nbsp;</strong>{{categoria.activo? 'SI':'NO'}}</p>
+            <div class="" style="display: flex; justify-content: space-around;">
+              <button class="btn btn-primary" type="button" (click)="updateCategoria(categoria);"><i class="material-icons">edit</i>&nbsp;Editar</button>
+              <button class="btn btn-danger" type="button" (click)="deleteProduct(categoria.id);"><i class="material-icons">delete</i>&nbsp;Eliminar</button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

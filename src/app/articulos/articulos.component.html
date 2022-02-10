@@ -1,0 +1,29 @@
+<div class="container-fluid page">
+    <div class="page__box p-3 mt-2">Artículos</div>
+    <div class="page__content shadown p-3 position-relative">
+      <div class="page__content-data position-absolute col-md-12"><br/>
+  
+        <div class="row mt-4 mb-4 justify-content-end">
+          <div class="col-3">
+            <button type="button" class="btn btn-success" (click)="updateArticulo('new');"><i class="material-icons">add</i>&nbsp;
+              Agregar artículo
+            </button>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="card" *ngFor="let articulo of articulos">
+            <h2><strong>Calve:&nbsp;</strong>{{articulo.clave}}</h2>
+            <h3><strong>Nombre:&nbsp;</strong>{{articulo.nombre}}</h3>
+            <h3><strong>Categoría:&nbsp;</strong>{{articulo.categoria.nombre}} </h3>
+            <h4><strong>Precio:&nbsp;</strong>{{articulo.precios[0].precio | currency}}</h4>
+            <p><strong>Activo:&nbsp;</strong>{{articulo.activo? 'SI':'NO'}}</p>
+            <div class="" style="display: flex; justify-content: space-around;">
+              <button class="btn btn-primary" type="button" (click)="updateArticulo(articulo);"><i class="material-icons">edit</i>&nbsp;Editar</button>
+              <button class="btn btn-danger" type="button" (click)="deleteProduct(articulo.id);"><i class="material-icons">delete</i>&nbsp;Eliminar</button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

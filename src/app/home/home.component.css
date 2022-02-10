@@ -1,0 +1,36 @@
+.mat-icon{
+    vertical-align: center;
+    margin-right: 1rem;
+}
+
+.mat-divider{
+    border-top-width: 2px;
+    border-color: white;
+}
+
+.mat-list-item {
+    color: white !important;
+    font-size: 0.8rem;
+    height: 44px !important;
+    margin-bottom: 4px;
+    border-radius: 5px;
+}
+.mat-list-item:focus {
+    color: white !important;
+    background: #2c3344;
+    font-size: 0.8rem;
+    height: 44px !important;
+    margin-bottom: 4px;
+    border-radius: 5px;
+}
+.mat-list-item:hover {
+    background: #2c3344 !important;
+}
+
+
+.mat-subheader {
+    color: #818cf8;
+    font-size: 0.6rem;
+    font-weight: 100;
+    letter-spacing: 1px;
+}

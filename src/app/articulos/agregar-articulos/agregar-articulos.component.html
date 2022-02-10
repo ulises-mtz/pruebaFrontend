@@ -1,0 +1,66 @@
+<div class="col-md-12">
+    <div class="borderbox">
+        <div class="text-center">
+            <p class="titlebox">Agregar nuevo artículo</p>
+
+        
+            <mat-form-field class="col-10" appearance="outline">
+                <mat-label>&nbsp;Clave del artículo</mat-label>
+                <input matInput placeholder="Clave del artículo" name="clave" [(ngModel)]="articulo.clave">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="col-10">
+                <mat-label>Categoría</mat-label>
+                <mat-select name="categoria" [(ngModel)]="articulo.categoria">
+                  <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nombre}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            <mat-form-field class="col-10" appearance="outline">
+                <mat-label>&nbsp;Nombre del artículo</mat-label>
+                <input matInput type="text" placeholder="Nombre del artículo" name="nombre" [(ngModel)]="articulo.nombre">
+            </mat-form-field>
+                  
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>
+                        <mat-form-field class="col-10" appearance="outline">
+                            <mat-label>&nbsp;Precio del artículo</mat-label>
+                            <input matInput type="number" placeholder="Precio del artículo" name="precio" [(ngModel)]="precioParaPushear">
+                        </mat-form-field>
+                      </th>
+                      <th>
+                        <div class="col-12 justify-content-center" style="padding: 10%;">
+                          <button type="button" class="btn btn-primary" (click)="addPrecio();">Agregar</button>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                      <div *ngIf="articulo.precios.length">
+                          <tr *ngFor="let precio of articulo.precios">
+                            <td>Precio: {{precio.precio}}</td>
+                            <!-- <td>
+                              <span class="material-icons" style="color:#f05a24; cursor:pointer;" (click)="deletePrecio()"
+                                matTooltip="Eliminar">delete_outline</span>
+                            </td> -->
+                          </tr>
+                      </div>
+                    </tr>
+                    </tbody>
+                </table>
+
+            <p>¿ Estatus ? </p>
+            <mat-slide-toggle name="status"> <span *ngIf="!articulo.activo"> <strong>activo</strong> </span> <span *ngIf="articulo.activo">
+                <strong>desactivado</strong> </span> </mat-slide-toggle><br>
+
+
+            <div style="display: flex; justify-content: space-around;">
+                <button class="btn btn-primary btn-block" type="button" (click)="cancelar()"><i class="material-icons">close</i>&nbsp;Cancelar</button>
+                <button [disabled]="" class="btn btn-success btn-block" type="button" (click)="addArticulo()"><i class="material-icons">save</i>&nbsp;Guardar</button>
+            </div><br>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="col-md-12">
+    <div class="borderbox">
+        <div class="text-center">
+            <p class="titlebox">Agregar nueva Categoría</p>
+
+            <mat-form-field class="col-10" appearance="outline">
+                <mat-label>&nbsp;Clave de la categoría</mat-label>
+                <input matInput placeholder="Clave de la categoría" name="clave" [(ngModel)]="categoria.clave">
+            </mat-form-field>
+
+            <mat-form-field class="col-10" appearance="outline">
+                <mat-label>&nbsp;Fecha</mat-label>
+                <input matInput [matDatepicker]="picker" placeholder="Fecha" name="fecha" [(ngModel)]="categoria.fechaCreado">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+        
+            <mat-form-field class="col-10" appearance="outline">
+                <mat-label>&nbsp;Nombre de la categoría</mat-label>
+                <input matInput placeholder="Nombre de la categoría" name="name" [(ngModel)]="categoria.nombre">
+            </mat-form-field>
+
+            <p>¿ Estatus ? </p>
+                    <mat-slide-toggle name="status"> <span *ngIf="!categoria.activa"> <strong>activa</strong> </span> <span *ngIf="categoria.activa">
+                        <strong>desactivada</strong> </span> </mat-slide-toggle><br>
+
+
+
+            <div style="display: flex; justify-content: space-around;">
+                <button class="btn btn-primary btn-block" type="button" (click)="cancelar()"><i class="material-icons">close</i>&nbsp;Cancelar</button>
+                <button [disabled]="" class="btn btn-success btn-block" type="button" (click)="addCategoria()"><i class="material-icons" >save</i>&nbsp;Guardar</button>
+            </div><br>
+        </div>
+    </div>
+</div>
+
+
+
